@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-// ==================== Afficher tous depuis la BDD ====================
+// ==================== Afficher tous, afficher un, ajout ====================
 
 //@WebServlet("/tous") // URL
 @WebServlet(name = "bddAfficherTousServlet", value = {"/tous", "/ajout", "/un/*"})
@@ -46,7 +46,7 @@ public class BddAfficherTousServlet extends HttpServlet {
         switch (pathInfo) {
             case "/ajout":
 
-                req.getRequestDispatcher("/WEB-INF/pages/ajout.jsp").forward(req, resp); // Redirige l'utilisateur vers le fichier form.jsp avec les champs pré-remplis
+                req.getRequestDispatcher("/WEB-INF/pages/ajout.jsp").forward(req, resp);
 
                 break;
 
@@ -95,8 +95,6 @@ public class BddAfficherTousServlet extends HttpServlet {
         System.out.println("pathInfo: " + pathInfo); // Récupère le pathInfo dans la console
 
         if (pathInfo == "/ajout") {
-
-
 
             // Récupérer les données du formulaire :
             String nom = req.getParameter("nom");
